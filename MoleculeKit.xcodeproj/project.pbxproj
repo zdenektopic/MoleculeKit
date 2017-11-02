@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA1D49991FAA693200E7D22C /* MoleculeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1D498F1FAA693200E7D22C /* MoleculeKit.framework */; };
+		CA1D499E1FAA693200E7D22C /* MoleculeKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D499D1FAA693200E7D22C /* MoleculeKitTests.swift */; };
+		CA1D49A01FAA693200E7D22C /* MoleculeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49921FAA693200E7D22C /* MoleculeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA1D49DB1FAA6ACE00E7D22C /* UIView+Yoga.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49D51FAA6ACE00E7D22C /* UIView+Yoga.m */; };
+		CA1D49DC1FAA6ACE00E7D22C /* YGLayout+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49D61FAA6ACE00E7D22C /* YGLayout+Private.h */; };
+		CA1D49DD1FAA6ACE00E7D22C /* UIView+Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49D71FAA6ACE00E7D22C /* UIView+Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA1D49DE1FAA6ACE00E7D22C /* YGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49D81FAA6ACE00E7D22C /* YGLayout.m */; };
+		CA1D49DF1FAA6ACE00E7D22C /* YGLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49D91FAA6ACE00E7D22C /* YGLayoutExtensions.swift */; };
+		CA1D49E01FAA6ACE00E7D22C /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49DA1FAA6ACE00E7D22C /* YGLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA1D49E91FAA6BE500E7D22C /* Yoga-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49E11FAA6BE400E7D22C /* Yoga-internal.h */; };
+		CA1D49EA1FAA6BE500E7D22C /* YGEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49E21FAA6BE400E7D22C /* YGEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA1D49EB1FAA6BE500E7D22C /* YGNodeList.c in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49E31FAA6BE400E7D22C /* YGNodeList.c */; };
+		CA1D49EC1FAA6BE500E7D22C /* YGMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49E41FAA6BE500E7D22C /* YGMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA1D49ED1FAA6BE500E7D22C /* Yoga.c in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49E51FAA6BE500E7D22C /* Yoga.c */; };
+		CA1D49EE1FAA6BE500E7D22C /* Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49E61FAA6BE500E7D22C /* Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA1D49EF1FAA6BE500E7D22C /* YGNodeList.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1D49E71FAA6BE500E7D22C /* YGNodeList.h */; };
+		CA1D49F01FAA6BE500E7D22C /* YGEnums.c in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49E81FAA6BE500E7D22C /* YGEnums.c */; };
+		CA1D49F61FAA70A000E7D22C /* EmptyInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49F51FAA70A000E7D22C /* EmptyInitializable.swift */; };
+		CA1D49FB1FAA70FF00E7D22C /* UIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49FA1FAA70FF00E7D22C /* UIComponent.swift */; };
+		CA1D49FD1FAA713600E7D22C /* UIComponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49FC1FAA713600E7D22C /* UIComponentState.swift */; };
+		CA1D49FF1FAA716000E7D22C /* UIComponentProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49FE1FAA716000E7D22C /* UIComponentProps.swift */; };
+		CA1D4A031FAA73F300E7D22C /* UINodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D4A021FAA73F300E7D22C /* UINodeType.swift */; };
+		CA1D4A051FAA741D00E7D22C /* UINode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D4A041FAA741D00E7D22C /* UINode.swift */; };
+		CA1D4A091FAA79BD00E7D22C /* UINodeIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D4A081FAA79BD00E7D22C /* UINodeIdentifiable.swift */; };
+		CA8AF5A51FABB42800F691F7 /* AssociatedObjectStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5A41FABB42800F691F7 /* AssociatedObjectStoring.swift */; };
+		CA8AF5A81FABB6E700F691F7 /* UINodeContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5A71FABB6E700F691F7 /* UINodeContext.swift */; };
+		CA8AF5AA1FABB77F00F691F7 /* View+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5A91FABB77F00F691F7 /* View+Context.swift */; };
+		CA8AF5AC1FABB78900F691F7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5AB1FABB78900F691F7 /* View.swift */; };
+		CA8AF5AF1FABBF1E00F691F7 /* UIComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5AE1FABBF1E00F691F7 /* UIComponentView.swift */; };
+		CA8AF5B11FABBFBE00F691F7 /* UIComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5B01FABBFBE00F691F7 /* UIComponentType.swift */; };
+		CA8AF5B31FABD04100F691F7 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5B21FABD04100F691F7 /* Debug.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA1D499A1FAA693200E7D22C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA1D49861FAA693200E7D22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA1D498E1FAA693200E7D22C;
+			remoteInfo = MoleculeKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA1D498F1FAA693200E7D22C /* MoleculeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoleculeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1D49921FAA693200E7D22C /* MoleculeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoleculeKit.h; sourceTree = "<group>"; };
+		CA1D49931FAA693200E7D22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1D49981FAA693200E7D22C /* MoleculeKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoleculeKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1D499D1FAA693200E7D22C /* MoleculeKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeKitTests.swift; sourceTree = "<group>"; };
+		CA1D499F1FAA693200E7D22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1D49D51FAA6ACE00E7D22C /* UIView+Yoga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Yoga.m"; path = "../../../../../../Downloads/yoga-master/YogaKit/Source/UIView+Yoga.m"; sourceTree = "<group>"; };
+		CA1D49D61FAA6ACE00E7D22C /* YGLayout+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "YGLayout+Private.h"; path = "../../../../../../Downloads/yoga-master/YogaKit/Source/YGLayout+Private.h"; sourceTree = "<group>"; };
+		CA1D49D71FAA6ACE00E7D22C /* UIView+Yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Yoga.h"; path = "../../../../../../Downloads/yoga-master/YogaKit/Source/UIView+Yoga.h"; sourceTree = "<group>"; };
+		CA1D49D81FAA6ACE00E7D22C /* YGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGLayout.m; path = "../../../../../../Downloads/yoga-master/YogaKit/Source/YGLayout.m"; sourceTree = "<group>"; };
+		CA1D49D91FAA6ACE00E7D22C /* YGLayoutExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YGLayoutExtensions.swift; path = "../../../../../../Downloads/yoga-master/YogaKit/Source/YGLayoutExtensions.swift"; sourceTree = "<group>"; };
+		CA1D49DA1FAA6ACE00E7D22C /* YGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGLayout.h; path = "../../../../../../Downloads/yoga-master/YogaKit/Source/YGLayout.h"; sourceTree = "<group>"; };
+		CA1D49E11FAA6BE400E7D22C /* Yoga-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Yoga-internal.h"; sourceTree = "<group>"; };
+		CA1D49E21FAA6BE400E7D22C /* YGEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEnums.h; sourceTree = "<group>"; };
+		CA1D49E31FAA6BE400E7D22C /* YGNodeList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = YGNodeList.c; sourceTree = "<group>"; };
+		CA1D49E41FAA6BE500E7D22C /* YGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMacros.h; sourceTree = "<group>"; };
+		CA1D49E51FAA6BE500E7D22C /* Yoga.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Yoga.c; sourceTree = "<group>"; };
+		CA1D49E61FAA6BE500E7D22C /* Yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yoga.h; sourceTree = "<group>"; };
+		CA1D49E71FAA6BE500E7D22C /* YGNodeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNodeList.h; sourceTree = "<group>"; };
+		CA1D49E81FAA6BE500E7D22C /* YGEnums.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = YGEnums.c; sourceTree = "<group>"; };
+		CA1D49F51FAA70A000E7D22C /* EmptyInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInitializable.swift; sourceTree = "<group>"; };
+		CA1D49FA1FAA70FF00E7D22C /* UIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponent.swift; sourceTree = "<group>"; };
+		CA1D49FC1FAA713600E7D22C /* UIComponentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentState.swift; sourceTree = "<group>"; };
+		CA1D49FE1FAA716000E7D22C /* UIComponentProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentProps.swift; sourceTree = "<group>"; };
+		CA1D4A021FAA73F300E7D22C /* UINodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINodeType.swift; sourceTree = "<group>"; };
+		CA1D4A041FAA741D00E7D22C /* UINode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINode.swift; sourceTree = "<group>"; };
+		CA1D4A081FAA79BD00E7D22C /* UINodeIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINodeIdentifiable.swift; sourceTree = "<group>"; };
+		CA8AF5A41FABB42800F691F7 /* AssociatedObjectStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectStoring.swift; sourceTree = "<group>"; };
+		CA8AF5A71FABB6E700F691F7 /* UINodeContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINodeContext.swift; sourceTree = "<group>"; };
+		CA8AF5A91FABB77F00F691F7 /* View+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Context.swift"; sourceTree = "<group>"; };
+		CA8AF5AB1FABB78900F691F7 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		CA8AF5AE1FABBF1E00F691F7 /* UIComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentView.swift; sourceTree = "<group>"; };
+		CA8AF5B01FABBFBE00F691F7 /* UIComponentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentType.swift; sourceTree = "<group>"; };
+		CA8AF5B21FABD04100F691F7 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA1D498B1FAA693200E7D22C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1D49951FAA693200E7D22C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1D49991FAA693200E7D22C /* MoleculeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA1D49851FAA693200E7D22C = {
+			isa = PBXGroup;
+			children = (
+				CA1D49911FAA693200E7D22C /* MoleculeKit */,
+				CA1D499C1FAA693200E7D22C /* MoleculeKitTests */,
+				CA1D49901FAA693200E7D22C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA1D49901FAA693200E7D22C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D498F1FAA693200E7D22C /* MoleculeKit.framework */,
+				CA1D49981FAA693200E7D22C /* MoleculeKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA1D49911FAA693200E7D22C /* MoleculeKit */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D49F91FAA70E600E7D22C /* Source */,
+				CA1D49D31FAA6A5A00E7D22C /* Dependencies */,
+				CA1D49921FAA693200E7D22C /* MoleculeKit.h */,
+				CA1D49931FAA693200E7D22C /* Info.plist */,
+			);
+			path = MoleculeKit;
+			sourceTree = "<group>";
+		};
+		CA1D499C1FAA693200E7D22C /* MoleculeKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D499D1FAA693200E7D22C /* MoleculeKitTests.swift */,
+				CA1D499F1FAA693200E7D22C /* Info.plist */,
+			);
+			path = MoleculeKitTests;
+			sourceTree = "<group>";
+		};
+		CA1D49D31FAA6A5A00E7D22C /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D49D41FAA6A6600E7D22C /* Yoga */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		CA1D49D41FAA6A6600E7D22C /* Yoga */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D49E81FAA6BE500E7D22C /* YGEnums.c */,
+				CA1D49E21FAA6BE400E7D22C /* YGEnums.h */,
+				CA1D49E41FAA6BE500E7D22C /* YGMacros.h */,
+				CA1D49E31FAA6BE400E7D22C /* YGNodeList.c */,
+				CA1D49E71FAA6BE500E7D22C /* YGNodeList.h */,
+				CA1D49E11FAA6BE400E7D22C /* Yoga-internal.h */,
+				CA1D49E51FAA6BE500E7D22C /* Yoga.c */,
+				CA1D49E61FAA6BE500E7D22C /* Yoga.h */,
+				CA1D49D71FAA6ACE00E7D22C /* UIView+Yoga.h */,
+				CA1D49D51FAA6ACE00E7D22C /* UIView+Yoga.m */,
+				CA1D49DA1FAA6ACE00E7D22C /* YGLayout.h */,
+				CA1D49D81FAA6ACE00E7D22C /* YGLayout.m */,
+				CA1D49D61FAA6ACE00E7D22C /* YGLayout+Private.h */,
+				CA1D49D91FAA6ACE00E7D22C /* YGLayoutExtensions.swift */,
+			);
+			path = Yoga;
+			sourceTree = "<group>";
+		};
+		CA1D49F41FAA708400E7D22C /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D49F51FAA70A000E7D22C /* EmptyInitializable.swift */,
+				CA8AF5A41FABB42800F691F7 /* AssociatedObjectStoring.swift */,
+				CA8AF5B21FABD04100F691F7 /* Debug.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		CA1D49F91FAA70E600E7D22C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CA8AF5AD1FABBF1000F691F7 /* View */,
+				CA8AF5A61FABB6D300F691F7 /* Context */,
+				CA1D4A011FAA73E600E7D22C /* Node */,
+				CA1D4A001FAA73D500E7D22C /* Component */,
+				CA1D49F41FAA708400E7D22C /* Supporting */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CA1D4A001FAA73D500E7D22C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				CA8AF5B01FABBFBE00F691F7 /* UIComponentType.swift */,
+				CA1D49FA1FAA70FF00E7D22C /* UIComponent.swift */,
+				CA1D49FC1FAA713600E7D22C /* UIComponentState.swift */,
+				CA1D49FE1FAA716000E7D22C /* UIComponentProps.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		CA1D4A011FAA73E600E7D22C /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D4A021FAA73F300E7D22C /* UINodeType.swift */,
+				CA1D4A041FAA741D00E7D22C /* UINode.swift */,
+				CA1D4A081FAA79BD00E7D22C /* UINodeIdentifiable.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		CA8AF5A61FABB6D300F691F7 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				CA8AF5A71FABB6E700F691F7 /* UINodeContext.swift */,
+				CA8AF5A91FABB77F00F691F7 /* View+Context.swift */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		CA8AF5AD1FABBF1000F691F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA8AF5AB1FABB78900F691F7 /* View.swift */,
+				CA8AF5AE1FABBF1E00F691F7 /* UIComponentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CA1D498C1FAA693200E7D22C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1D49EF1FAA6BE500E7D22C /* YGNodeList.h in Headers */,
+				CA1D49E91FAA6BE500E7D22C /* Yoga-internal.h in Headers */,
+				CA1D49DD1FAA6ACE00E7D22C /* UIView+Yoga.h in Headers */,
+				CA1D49DC1FAA6ACE00E7D22C /* YGLayout+Private.h in Headers */,
+				CA1D49E01FAA6ACE00E7D22C /* YGLayout.h in Headers */,
+				CA1D49EE1FAA6BE500E7D22C /* Yoga.h in Headers */,
+				CA1D49A01FAA693200E7D22C /* MoleculeKit.h in Headers */,
+				CA1D49EC1FAA6BE500E7D22C /* YGMacros.h in Headers */,
+				CA1D49EA1FAA6BE500E7D22C /* YGEnums.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CA1D498E1FAA693200E7D22C /* MoleculeKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA1D49A31FAA693200E7D22C /* Build configuration list for PBXNativeTarget "MoleculeKit" */;
+			buildPhases = (
+				CA1D498A1FAA693200E7D22C /* Sources */,
+				CA1D498B1FAA693200E7D22C /* Frameworks */,
+				CA1D498C1FAA693200E7D22C /* Headers */,
+				CA1D498D1FAA693200E7D22C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoleculeKit;
+			productName = MoleculeKit;
+			productReference = CA1D498F1FAA693200E7D22C /* MoleculeKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CA1D49971FAA693200E7D22C /* MoleculeKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA1D49A61FAA693200E7D22C /* Build configuration list for PBXNativeTarget "MoleculeKitTests" */;
+			buildPhases = (
+				CA1D49941FAA693200E7D22C /* Sources */,
+				CA1D49951FAA693200E7D22C /* Frameworks */,
+				CA1D49961FAA693200E7D22C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA1D499B1FAA693200E7D22C /* PBXTargetDependency */,
+			);
+			name = MoleculeKitTests;
+			productName = MoleculeKitTests;
+			productReference = CA1D49981FAA693200E7D22C /* MoleculeKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA1D49861FAA693200E7D22C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Zdenek Topic";
+				TargetAttributes = {
+					CA1D498E1FAA693200E7D22C = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+					};
+					CA1D49971FAA693200E7D22C = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA1D49891FAA693200E7D22C /* Build configuration list for PBXProject "MoleculeKit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CA1D49851FAA693200E7D22C;
+			productRefGroup = CA1D49901FAA693200E7D22C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA1D498E1FAA693200E7D22C /* MoleculeKit */,
+				CA1D49971FAA693200E7D22C /* MoleculeKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA1D498D1FAA693200E7D22C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1D49961FAA693200E7D22C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA1D498A1FAA693200E7D22C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1D49FF1FAA716000E7D22C /* UIComponentProps.swift in Sources */,
+				CA8AF5B31FABD04100F691F7 /* Debug.swift in Sources */,
+				CA1D4A031FAA73F300E7D22C /* UINodeType.swift in Sources */,
+				CA1D49ED1FAA6BE500E7D22C /* Yoga.c in Sources */,
+				CA1D4A051FAA741D00E7D22C /* UINode.swift in Sources */,
+				CA8AF5AC1FABB78900F691F7 /* View.swift in Sources */,
+				CA8AF5B11FABBFBE00F691F7 /* UIComponentType.swift in Sources */,
+				CA1D49FD1FAA713600E7D22C /* UIComponentState.swift in Sources */,
+				CA1D49DF1FAA6ACE00E7D22C /* YGLayoutExtensions.swift in Sources */,
+				CA8AF5A51FABB42800F691F7 /* AssociatedObjectStoring.swift in Sources */,
+				CA8AF5AF1FABBF1E00F691F7 /* UIComponentView.swift in Sources */,
+				CA1D49F01FAA6BE500E7D22C /* YGEnums.c in Sources */,
+				CA8AF5AA1FABB77F00F691F7 /* View+Context.swift in Sources */,
+				CA1D49DB1FAA6ACE00E7D22C /* UIView+Yoga.m in Sources */,
+				CA8AF5A81FABB6E700F691F7 /* UINodeContext.swift in Sources */,
+				CA1D4A091FAA79BD00E7D22C /* UINodeIdentifiable.swift in Sources */,
+				CA1D49F61FAA70A000E7D22C /* EmptyInitializable.swift in Sources */,
+				CA1D49FB1FAA70FF00E7D22C /* UIComponent.swift in Sources */,
+				CA1D49DE1FAA6ACE00E7D22C /* YGLayout.m in Sources */,
+				CA1D49EB1FAA6BE500E7D22C /* YGNodeList.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1D49941FAA693200E7D22C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1D499E1FAA693200E7D22C /* MoleculeKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA1D499B1FAA693200E7D22C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA1D498E1FAA693200E7D22C /* MoleculeKit */;
+			targetProxy = CA1D499A1FAA693200E7D22C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CA1D49A11FAA693200E7D22C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA1D49A21FAA693200E7D22C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA1D49A41FAA693200E7D22C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5T26JJW2C6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MoleculeKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.zdenektopic.MoleculeKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA1D49A51FAA693200E7D22C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5T26JJW2C6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MoleculeKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.zdenektopic.MoleculeKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CA1D49A71FAA693200E7D22C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T26JJW2C6;
+				INFOPLIST_FILE = MoleculeKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.zdenektopic.MoleculeKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA1D49A81FAA693200E7D22C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T26JJW2C6;
+				INFOPLIST_FILE = MoleculeKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.zdenektopic.MoleculeKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA1D49891FAA693200E7D22C /* Build configuration list for PBXProject "MoleculeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1D49A11FAA693200E7D22C /* Debug */,
+				CA1D49A21FAA693200E7D22C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA1D49A31FAA693200E7D22C /* Build configuration list for PBXNativeTarget "MoleculeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1D49A41FAA693200E7D22C /* Debug */,
+				CA1D49A51FAA693200E7D22C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA1D49A61FAA693200E7D22C /* Build configuration list for PBXNativeTarget "MoleculeKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1D49A71FAA693200E7D22C /* Debug */,
+				CA1D49A81FAA693200E7D22C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA1D49861FAA693200E7D22C /* Project object */;
+}
