@@ -25,6 +25,7 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
     }
     
     open override func layoutSubviews() {
+        super.layoutSubviews()
         component.layout()
     }
     
@@ -39,6 +40,15 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
     open override func setNeedsLayout() {
         super.setNeedsLayout()
         component.setNeedsLayout()
+    }
+    
+    open override func layoutIfNeeded() {
+        if component.needsLayout {
+            layoutSubviews()
+            return
+        }
+        
+        super.layoutIfNeeded()
     }
     
 }
