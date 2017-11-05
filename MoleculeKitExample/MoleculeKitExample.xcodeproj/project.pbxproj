@@ -11,9 +11,24 @@
 		CA1D49B81FAA695A00E7D22C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49B71FAA695A00E7D22C /* ViewController.swift */; };
 		CA1D49BD1FAA695A00E7D22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1D49BC1FAA695A00E7D22C /* Assets.xcassets */; };
 		CA1D49C01FAA695A00E7D22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1D49BE1FAA695A00E7D22C /* LaunchScreen.storyboard */; };
-		CA1D49D11FAA69F300E7D22C /* MoleculeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1D49D21FAA69F300E7D22C /* MoleculeKit.framework */; };
 		CA1D49F31FAA6FB900E7D22C /* ListTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D49F21FAA6FB900E7D22C /* ListTableComponent.swift */; };
+		CA8AF5BA1FAF20F000F691F7 /* MoleculeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1D49D21FAA69F300E7D22C /* MoleculeKit.framework */; };
+		CA8AF5BB1FAF20F000F691F7 /* MoleculeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA1D49D21FAA69F300E7D22C /* MoleculeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA8AF5BC1FAF20F100F691F7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA8AF5BB1FAF20F000F691F7 /* MoleculeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CA1D49B21FAA695A00E7D22C /* MoleculeKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoleculeKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA1D49D11FAA69F300E7D22C /* MoleculeKit.framework in Frameworks */,
+				CA8AF5BA1FAF20F000F691F7 /* MoleculeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +109,7 @@
 				CA1D49AE1FAA695A00E7D22C /* Sources */,
 				CA1D49AF1FAA695A00E7D22C /* Frameworks */,
 				CA1D49B01FAA695A00E7D22C /* Resources */,
+				CA8AF5BC1FAF20F100F691F7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

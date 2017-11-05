@@ -11,10 +11,9 @@ import Foundation
 public protocol UINodeType {
     
     var reuseIdentifier: String { get }
-    var index: Int { get set }
     var renderedView: View? { get }
     
-    func reconcile(with: UIView?, parent: UIView)
+    func reconcile(with: View?, currentIndex: Int?, in: View, toIndex: Int)
     func setup(size: CGSize)
     
 }

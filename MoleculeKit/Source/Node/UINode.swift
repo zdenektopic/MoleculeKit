@@ -45,41 +45,29 @@ open class UINode<ViewType: View>: UINodeType {
     // MARK: - Children management
     
     open var children: [UINodeType] = []
-    open var index: Int = 0
     
     @discardableResult
     open func child(_ child: UINodeType) -> Self {
         children = [child]
-        updateChildrenIndexes()
         return self
     }
     
     @discardableResult
     open func children(_ children: [UINodeType]) -> Self {
         self.children = children
-        updateChildrenIndexes()
         return self
     }
     
     @discardableResult
     open func append(child: UINodeType) -> Self {
-        var mutable = child
-        mutable.index = children.count
-        children.append(mutable)
+        children.append(child)
         return self
     }
     
     @discardableResult
     open func append(children: [UINodeType]) -> Self {
         self.children.append(contentsOf: children)
-        updateChildrenIndexes()
         return self
-    }
-    
-    private func updateChildrenIndexes() {
-        for (index, var child) in children.enumerated() {
-            child.index = index
-        }
     }
     
     // MARK: - Reconciliation
@@ -118,13 +106,18 @@ open class UINode<ViewType: View>: UINodeType {
         }
     }
     
-    open func reconcile(with reusableView: View?, parent: View) {
+    typealias ViewInfo = (managed: Bool, index: Int, view: View)
+    
+    open func reconcile(with reusableView: View?, currentIndex: Int?, in parent: View, toIndex index: Int) {
         assert(Thread.isMainThread)
         
         // The candidate view is a good match for reuse.
         if let view = reusableView, view._nodeContext?.managed == true && view.tag == reuseIdentifier.hashValue {
             construct(with: view)
-//            view.renderContext.isNewlyCreated = false
+            if index != currentIndex {
+                renderedView!.removeFromSuperview()
+                parent.insertSubview(_renderedView!, at: index)
+            }
         } else {
             // The view for this node needs to be created.
             reusableView?.removeFromSuperview()
@@ -134,29 +127,33 @@ open class UINode<ViewType: View>: UINodeType {
         }
         
         // Gets all of the existing subviews.
-        var oldSubviews = reusableView?.subviews.filter { view in
-            return view._nodeContext?.managed == true
+        var infos = reusableView?.subviews.enumerated().map { (index, view) in
+            return ViewInfo(managed: view._nodeContext?.managed == true, index: index, view: view)
+//            return view._nodeContext?.managed == true
         }
         
-        for subnode in children {
+        for (sIndex, subnode) in children.enumerated() {
             // Look for a candidate view matching the node.
-            let candidateIndex = oldSubviews?.index(where: { view in
-                return view.tag == subnode.reuseIdentifier.hash
+            let infoIndex = infos?.index(where: { info in
+                return (
+                    info.managed
+                    && info.view.tag == subnode.reuseIdentifier.hashValue
+                )
             })
             
-            var candidateView: UIView? = nil
-            if let index = candidateIndex {
-                candidateView = oldSubviews?[index]
-                oldSubviews?.remove(at: index)
+            var candidate: ViewInfo?
+            if let index = infoIndex {
+                candidate = infos?[index]
+                infos?.remove(at: index)
             }
             
             // Recursively reconcile the subnode.
-            subnode.reconcile(with: candidateView, parent: _renderedView!)
+            subnode.reconcile(with: candidate?.view, currentIndex: candidate?.index, in: _renderedView!, toIndex: sIndex)
         }
         
         // Remove all of the obsolete old views that couldn't be recycled.
-        for view in oldSubviews ?? [] {
-            view.removeFromSuperview()
+        for info in infos ?? [] {
+            info.view.removeFromSuperview()
         }
     }
     

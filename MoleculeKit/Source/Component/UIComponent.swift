@@ -55,11 +55,16 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
         
         let startTime = CFAbsoluteTimeGetCurrent()
         
-        let candidateView = parent.subviews.filter { view in
+        let candidateIndex = parent.subviews.index { view in
             return view._nodeContext?.managed == true
-        }.first
+        }
         
-        rootNode.reconcile(with: candidateView, parent: parent)
+        var candidateView: View?
+        if let index = candidateIndex {
+            candidateView = parent.subviews[index]
+        }
+        
+        rootNode.reconcile(with: candidateView, currentIndex: candidateIndex, in: parent, toIndex: 0)
         rootNode.setup(size: parent.bounds.size)
         nodeView!.bounds.size = parent.bounds.size
         nodeView!.yoga.applyLayout(preservingOrigin: false)
