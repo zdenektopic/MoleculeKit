@@ -142,6 +142,7 @@ open class UINode<ViewType: View>: UINodeType {
             return ViewInfo(managed: view._nodeContext?.managed == true, index: index, view: view)
         }
         
+        var newViews = 0
         for (sIndex, subnode) in children.enumerated() {
             // Look for a candidate view matching the node.
             let infoIndex = infos.index { info in
@@ -151,14 +152,19 @@ open class UINode<ViewType: View>: UINodeType {
                 )
             }
             
-            var candidate: ViewInfo?
+            var candidateView: View?
+            var candidateIndex: Int?
             if let index = infoIndex {
-                candidate = infos[index]
+                let info = infos[index]
+                candidateView = info.view
+                candidateIndex = info.index + newViews
                 infos.remove(at: index)
+            } else {
+                newViews += 1
             }
             
             // Recursively reconcile the subnode.
-            subnode.reconcile(with: candidate?.view, currentIndex: candidate?.index, in: _renderedView!, toIndex: sIndex)
+            subnode.reconcile(with: candidateView, currentIndex: candidateIndex, in: _renderedView!, toIndex: sIndex)
         }
         
         // Remove all of the obsolete old views that couldn't be recycled.

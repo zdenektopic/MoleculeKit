@@ -37,9 +37,4 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
         return intrinsicContentSize
     }
     
-    open override func setNeedsLayout() {
-        super.setNeedsLayout()
-        print("NEEDS LAYOUT")
-    }
-    
 }
