@@ -11,11 +11,9 @@ import Foundation
 public protocol UIComponentType {
     
     var intrinsicContentSize: CGSize { get }
-    var needsLayout: Bool { get }
     
     func mount(in: View)
+    func update()
     func layout()
-    func layoutIfNeeded()
-    func setNeedsLayout()
     
 }

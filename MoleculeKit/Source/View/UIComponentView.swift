@@ -20,13 +20,13 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
         component.mount(in: self)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     open override func layoutSubviews() {
         super.layoutSubviews()
         component.layout()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     open override var intrinsicContentSize: CGSize {
@@ -39,16 +39,7 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
     
     open override func setNeedsLayout() {
         super.setNeedsLayout()
-        component.setNeedsLayout()
-    }
-    
-    open override func layoutIfNeeded() {
-        if component.needsLayout {
-            layoutSubviews()
-            return
-        }
-        
-        super.layoutIfNeeded()
+        print("NEEDS LAYOUT")
     }
     
 }

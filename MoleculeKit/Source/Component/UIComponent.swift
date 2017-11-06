@@ -10,17 +10,23 @@ import Foundation
 
 open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>: UIComponentType {
     
-    open var state: StateType = StateType()
-    open var props: PropsType = PropsType()
+    open var state: StateType = StateType() {
+        didSet {
+            needsUpdateRoot = true
+        }
+    }
+    open var props: PropsType = PropsType() {
+        didSet {
+            needsUpdateRoot = true
+        }
+    }
     
     open var intrinsicContentSize: CGSize {
-        layoutIfNeeded()
         return nodeView!.yoga.intrinsicSize
     }
     
-    open fileprivate(set) var needsLayout: Bool = false
-    
     private weak var parentView: View?
+    private var needsUpdateRoot: Bool = true
     private var rootNode: UINodeType?
     private var nodeView: View? {
         return rootNode?.renderedView
@@ -33,8 +39,7 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
     }
     
     open func update() {
-        rootNode = render(state: self.state, props: self.props)
-        setNeedsLayout()
+        parentView?.setNeedsLayout()
     }
     
     open func layout() {
@@ -45,13 +50,10 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
             return
         }
         
-        guard let rootNode = rootNode else {
-            update()
-            layoutIfNeeded()
-            return
+        if needsUpdateRoot {
+            needsUpdateRoot = false
+            rootNode = render(state: self.state, props: self.props)
         }
-        
-        needsLayout = false
         
         let startTime = CFAbsoluteTimeGetCurrent()
         
@@ -64,26 +66,17 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
             candidateView = parent.subviews[index]
         }
         
-        rootNode.reconcile(with: candidateView, currentIndex: candidateIndex, in: parent, toIndex: 0)
-        rootNode.setup(size: parent.bounds.size)
+        rootNode!.reconcile(with: candidateView, currentIndex: candidateIndex, in: parent, toIndex: 0)
+        rootNode!.setup(size: parent.bounds.size)
         nodeView!.bounds.size = parent.bounds.size
         nodeView!.yoga.applyLayout(preservingOrigin: false)
         
         debugReconcileTime(in: self, startTime: startTime)
     }
     
-    open func layoutIfNeeded() {
-        if needsLayout {
-            layout()
-        }
-    }
-    
-    public func setNeedsLayout() {
-        needsLayout = true
-    }
-    
     open func mount(in view: View) {
         assert(Thread.isMainThread)
+        
         self.parentView = view
         didMount(in: view)
     }

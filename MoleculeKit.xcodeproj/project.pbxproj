@@ -38,6 +38,8 @@
 		CA8AF5AF1FABBF1E00F691F7 /* UIComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5AE1FABBF1E00F691F7 /* UIComponentView.swift */; };
 		CA8AF5B11FABBFBE00F691F7 /* UIComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5B01FABBFBE00F691F7 /* UIComponentType.swift */; };
 		CA8AF5B31FABD04100F691F7 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5B21FABD04100F691F7 /* Debug.swift */; };
+		CA8AF5BE1FAFADF600F691F7 /* UIRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5BD1FAFADF600F691F7 /* UIRenderable.swift */; };
+		CA8AF5C01FAFAE4400F691F7 /* View+UIRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF5BF1FAFAE4400F691F7 /* View+UIRenderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		CA8AF5AE1FABBF1E00F691F7 /* UIComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentView.swift; sourceTree = "<group>"; };
 		CA8AF5B01FABBFBE00F691F7 /* UIComponentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentType.swift; sourceTree = "<group>"; };
 		CA8AF5B21FABD04100F691F7 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		CA8AF5BD1FAFADF600F691F7 /* UIRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRenderable.swift; sourceTree = "<group>"; };
+		CA8AF5BF1FAFAE4400F691F7 /* View+UIRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIRenderable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,8 @@
 			children = (
 				CA8AF5AB1FABB78900F691F7 /* View.swift */,
 				CA8AF5AE1FABBF1E00F691F7 /* UIComponentView.swift */,
+				CA8AF5BD1FAFADF600F691F7 /* UIRenderable.swift */,
+				CA8AF5BF1FAFAE4400F691F7 /* View+UIRenderable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 				CA8AF5AC1FABB78900F691F7 /* View.swift in Sources */,
 				CA8AF5B11FABBFBE00F691F7 /* UIComponentType.swift in Sources */,
 				CA1D49FD1FAA713600E7D22C /* UIComponentState.swift in Sources */,
+				CA8AF5C01FAFAE4400F691F7 /* View+UIRenderable.swift in Sources */,
 				CA1D49DF1FAA6ACE00E7D22C /* YGLayoutExtensions.swift in Sources */,
 				CA8AF5A51FABB42800F691F7 /* AssociatedObjectStoring.swift in Sources */,
 				CA8AF5AF1FABBF1E00F691F7 /* UIComponentView.swift in Sources */,
@@ -369,6 +376,7 @@
 				CA1D49DB1FAA6ACE00E7D22C /* UIView+Yoga.m in Sources */,
 				CA8AF5A81FABB6E700F691F7 /* UINodeContext.swift in Sources */,
 				CA1D4A091FAA79BD00E7D22C /* UINodeIdentifiable.swift in Sources */,
+				CA8AF5BE1FAFADF600F691F7 /* UIRenderable.swift in Sources */,
 				CA1D49F61FAA70A000E7D22C /* EmptyInitializable.swift in Sources */,
 				CA1D49FB1FAA70FF00E7D22C /* UIComponent.swift in Sources */,
 				CA1D49DE1FAA6ACE00E7D22C /* YGLayout.m in Sources */,
