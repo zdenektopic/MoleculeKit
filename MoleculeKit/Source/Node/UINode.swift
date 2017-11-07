@@ -72,7 +72,7 @@ open class UINode<ViewType: View>: UINodeType {
     
     // MARK: - Reconciliation
     
-    private typealias ViewInfo = (managed: Bool, index: Int, view: View)
+    private typealias ViewInfo = (index: Int, view: View)
     
     private var _renderedView: ViewType? = nil
     
@@ -81,22 +81,15 @@ open class UINode<ViewType: View>: UINodeType {
     }
     
     open func setup(size: CGSize) {
+        if let control = _renderedView as? UIControl {
+            control.removeTarget(nil, action: nil, for: .allEvents)
+        }
+        
         for child in children {
             child.setup(size: size)
         }
         
         configuration(_renderedView!, _renderedView!.yoga, size)
-        
-        if let control = _renderedView as? UIControl {
-            for target in control.allTargets {
-                control.removeTarget(target, action: nil, for: .allEvents)
-            }
-        }
-        
-//        if _renderedView!.yoga.isEnabled, _renderedView!.yoga.isLeaf, _renderedView!.yoga.isIncludedInLayout {
-//            _renderedView!.frame.size = CGSize.zero
-////            _renderedView!.yoga.markDirty()
-//        }
         
     }
     
@@ -109,12 +102,12 @@ open class UINode<ViewType: View>: UINodeType {
         
         if let reusableView = view as? ViewType {
             _renderedView = reusableView
+            reusableView._nodeContext?.isNew = false
         } else {
             let view = creation()
             view.yoga.isEnabled = true
-            view.tag = reuseIdentifier.hashValue
-            let context = UINodeContext()
-            context.managed = true
+            let context = UINodeContext(reuseIdentifier: reuseIdentifier)
+            context.isNew = true
             view._nodeContext = context
             _renderedView = view
         }
@@ -124,7 +117,7 @@ open class UINode<ViewType: View>: UINodeType {
         assert(Thread.isMainThread)
         
         // The candidate view is a good match for reuse.
-        if let view = reusableView, view._nodeContext?.managed == true && view.tag == reuseIdentifier.hashValue {
+        if let view = reusableView, view._nodeContext?.reuseIdentifier == reuseIdentifier {
             construct(with: view)
             if index != currentIndex {
                 renderedView!.removeFromSuperview()
@@ -139,7 +132,7 @@ open class UINode<ViewType: View>: UINodeType {
         
         // Gets all of the existing subviews.
         var infos = _renderedView!.subviews.enumerated().map { (index, view) in
-            return ViewInfo(managed: view._nodeContext?.managed == true, index: index, view: view)
+            return ViewInfo(index: index, view: view)
         }
         
         var newViews = 0
@@ -147,8 +140,8 @@ open class UINode<ViewType: View>: UINodeType {
             // Look for a candidate view matching the node.
             let infoIndex = infos.index { info in
                 return (
-                    info.managed
-                    && info.view.tag == subnode.reuseIdentifier.hashValue
+                    info.view._nodeContext != nil
+                    && info.view._nodeContext?.reuseIdentifier == subnode.reuseIdentifier
                 )
             }
             
@@ -167,9 +160,10 @@ open class UINode<ViewType: View>: UINodeType {
             subnode.reconcile(with: candidateView, currentIndex: candidateIndex, in: _renderedView!, toIndex: sIndex)
         }
         
-        // Remove all of the obsolete old views that couldn't be recycled.
+        // Remove all of the obsolete old views that couldn't be recycled
+        // Exclude unmanaged views from layout
         for info in infos {
-            if !info.managed {
+            if info.view._nodeContext == nil {
                 info.view.yoga.isIncludedInLayout = false
                 continue
             }

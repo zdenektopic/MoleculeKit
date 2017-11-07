@@ -11,14 +11,15 @@ import UIKit
 
 extension UIScrollView: UIRenderable {
     
-    public func postRender() {
+    public func didLayout() {
         assert(Thread.isMainThread)
         
         if self is UITableView { return }
         if self is UICollectionView { return }
+        
         var x: CGFloat = 0
         var y: CGFloat = 0
-        for subview in self.subviews {
+        for subview in self.subviews where subview._nodeContext != nil {
             x = subview.frame.maxX > x ? subview.frame.maxX : x
             y = subview.frame.maxY > y ? subview.frame.maxY : y
         }

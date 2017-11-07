@@ -12,8 +12,9 @@ public protocol UIComponentType {
     
     var intrinsicContentSize: CGSize { get }
     
-    func mount(in: View)
+    func mount(in: View?)
     func update()
     func layout()
+    func sizeThatFits(_ size: CGSize) -> CGSize
     
 }

@@ -10,12 +10,13 @@ import Foundation
 
 public protocol UIRenderable {
     
-    func postRender()
+    func didLayout()
     
 }
 
 public extension UIRenderable {
     
-    open func postRender() {}
+    public func willLayout() {}
+    public func didLayout() {}
     
 }

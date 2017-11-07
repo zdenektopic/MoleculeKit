@@ -10,9 +10,11 @@ import Foundation
 
 @objc open class UINodeContext: NSObject {
     
-    var managed: Bool = false
+    var isNew: Bool = true
+    let reuseIdentifier: String
     
-    public override init() {
+    public init(reuseIdentifier: String) {
+        self.reuseIdentifier = reuseIdentifier
         super.init()
     }
     

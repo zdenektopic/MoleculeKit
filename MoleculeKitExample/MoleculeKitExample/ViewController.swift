@@ -29,7 +29,7 @@ class ViewController: UIViewController {
             print("tick")
 //            let vc = ViewController()
 //            self?.navigationController?.pushViewController(vc, animated: true)
-            self?.component.update()
+            self?.view.setNeedsLayout()
         })
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -61,7 +61,6 @@ final class ListTableComponent: UIComponent<ListTable, ListTableProps> {
                 layout.height = 100%
                 layout.overflow = .scroll
                 view.backgroundColor = .lightGray
-                view.contentSize = CGSize(width: 100, height: 1000)
             }
             .children([
                 UINode<UILabel>(reuseIdentifier: "label-1") { label, _, _ in
@@ -362,7 +361,8 @@ final class ListTableComponent: UIComponent<ListTable, ListTableProps> {
                     label.textColor = .red
                     label.textAlignment = .center
                 },
-                UINode<UILabel>(reuseIdentifier: "label-2") { label, _, _ in
+                UINode<UILabel>(reuseIdentifier: "label-2") { label, layout, _ in
+                    layout.alignSelf = .flexEnd
                     label.text = "prvni"
                     label.font = UIFont.boldSystemFont(ofSize: 12)
                     label.textColor = .red
@@ -451,7 +451,7 @@ final class ListTableComponent: UIComponent<ListTable, ListTableProps> {
         print("didUpdateState")
     }
     
-    override func didMount(in view: UIView) {
+    override func didMount(in view: UIView?) {
         super.didMount(in: view)
     }
     

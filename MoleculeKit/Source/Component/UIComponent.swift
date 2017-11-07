@@ -15,14 +15,11 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
             needsUpdateRoot = true
         }
     }
+    
     open var props: PropsType = PropsType() {
         didSet {
             needsUpdateRoot = true
         }
-    }
-    
-    open var intrinsicContentSize: CGSize {
-        return nodeView!.yoga.intrinsicSize
     }
     
     private weak var parentView: View?
@@ -32,33 +29,81 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
         return rootNode?.renderedView
     }
     
+    // MARK: - Initializers
+    
     public init() {}
+    
+    // MARK: - Render - hierarchy
     
     open func render(state: StateType, props: PropsType) -> UINodeType {
         fatalError("`\(type(of: self)).render(state:props:)` must be overriden")
     }
     
+    // MARK: - Requesting an update
+    
     open func update() {
-        parentView?.setNeedsLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.parentView?.setNeedsLayout()
+        }
     }
+    
+    // MARK: - Layout
     
     open func layout() {
         assert(Thread.isMainThread)
         
         guard let parent = parentView else {
-            print("calling without being assigned to view")
             return
-        }
-        
-        if needsUpdateRoot {
-            needsUpdateRoot = false
-            rootNode = render(state: self.state, props: self.props)
         }
         
         let startTime = CFAbsoluteTimeGetCurrent()
         
+        _updateRootIfNeeded()
+        _layout(in: parent)
+        _didLayout(view: nodeView!)
+        
+        debugReconcileTime(in: self, startTime: startTime)
+    }
+    
+    // MARK: - Mounting in View
+    
+    open func mount(in view: View?) {
+        assert(Thread.isMainThread)
+        
+        self.parentView = view
+        didMount(in: view)
+    }
+    
+    // MARK: - Lifecycle notifications
+    
+    open func didLayout() {}
+    open func didReconcile() {}
+    open func didUpdateProps() {}
+    open func didUpdateState() {}
+    open func didMount(in view: View?) {}
+    
+    // MARK: - Private helpers
+    
+    private func _didLayout(view: View) {
+        if let renderable = view as? UIRenderable {
+            renderable.didLayout()
+        }
+        
+        for subview in view.subviews where subview._nodeContext != nil {
+            _didLayout(view: subview)
+        }
+    }
+    
+    private func _updateRootIfNeeded() {
+        if needsUpdateRoot || rootNode == nil {
+            needsUpdateRoot = false
+            rootNode = render(state: self.state, props: self.props)
+        }
+    }
+    
+    private func _layout(in parent: View) {
         let candidateIndex = parent.subviews.index { view in
-            return view._nodeContext?.managed == true
+            return view._nodeContext != nil
         }
         
         var candidateView: View?
@@ -70,21 +115,16 @@ open class UIComponent<StateType: UIComponentState, PropsType: UIComponentProps>
         rootNode!.setup(size: parent.bounds.size)
         nodeView!.bounds.size = parent.bounds.size
         nodeView!.yoga.applyLayout(preservingOrigin: false)
-        
-        debugReconcileTime(in: self, startTime: startTime)
     }
     
-    open func mount(in view: View) {
-        assert(Thread.isMainThread)
-        
-        self.parentView = view
-        didMount(in: view)
+    // MARK: - iOS/macos View support
+    
+    open var intrinsicContentSize: CGSize {
+        return nodeView!.yoga.intrinsicSize
     }
     
-    open func didLayout() {}
-    open func didReconcile() {}
-    open func didUpdateProps() {}
-    open func didUpdateState() {}
-    open func didMount(in view: View) {}
+    open func sizeThatFits(_ size: CGSize) -> CGSize {
+        return nodeView!.yoga.calculateLayout(with: size)
+    }
     
 }

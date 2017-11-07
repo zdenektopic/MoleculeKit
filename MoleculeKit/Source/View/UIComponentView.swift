@@ -20,6 +20,10 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
         component.mount(in: self)
     }
     
+    deinit {
+        component.mount(in: nil)
+    }
+    
     open override func layoutSubviews() {
         super.layoutSubviews()
         component.layout()
@@ -34,7 +38,7 @@ open class UIComponentView<ComponentType: UIComponentType>: UIView {
     }
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return intrinsicContentSize
+        return component.sizeThatFits(size)
     }
     
 }
